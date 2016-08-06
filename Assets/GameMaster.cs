@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class GameMaster : MonoBehaviour {
 
@@ -11,6 +12,10 @@ public class GameMaster : MonoBehaviour {
 	public GameObject paddleR;
 	public GameObject ball;
 
+	public GameObject scoreL;
+	public GameObject scoreM;
+	public GameObject scoreR;
+
 	// Use this for initialization
 	void Start () {
 		startGame();
@@ -18,7 +23,8 @@ public class GameMaster : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		scoreL.GetComponent<Text>().text = paddleL.GetComponent<ChildSave>().child.GetComponent<Player>().score.ToString();
+		scoreL.GetComponent<Text>().color = paddleL.GetComponent<ChildSave>().child.GetComponent<Player>().color;
 	}
 
 	void startGame () 

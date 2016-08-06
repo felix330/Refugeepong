@@ -12,7 +12,7 @@ public class Player : MonoBehaviour {
 	public Sprite associatedPaddleSprite;
 	public Sprite associatedBallSprite;
 
-
+	public Color color;
 	// Use this for initialization
 	void Start () {
 		
@@ -49,6 +49,7 @@ public class Player : MonoBehaviour {
 		transform.parent = ship.transform;
 		transform.parent.SendMessage("shipSwitch",associatedPaddleSprite, SendMessageOptions.DontRequireReceiver);
 		transform.parent.SendMessage("boatSwitch",associatedBallSprite,SendMessageOptions.DontRequireReceiver);
+		transform.parent.gameObject.GetComponent<ChildSave>().child = gameObject;
 	}
 
 	void addScore (int toAdd)
