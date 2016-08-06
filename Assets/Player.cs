@@ -23,21 +23,16 @@ public class Player : MonoBehaviour {
 
 
 
-		if (Input.GetButton(upAxis))
-		{
-			transform.parent.SendMessage ("up",SendMessageOptions.DontRequireReceiver);
-		}
-		if (Input.GetButton(downAxis))
-		{
-			transform.parent.SendMessage ("down",SendMessageOptions.DontRequireReceiver);
-		}
-		if (Input.GetButton(leftAxis))
-		{
-			transform.parent.SendMessage ("left",SendMessageOptions.DontRequireReceiver);
-		}
-		if (Input.GetButton(rightAxis))
-		{
-			transform.parent.SendMessage ("right",SendMessageOptions.DontRequireReceiver);
+		if (Input.GetButton (upAxis)) {
+			transform.parent.SendMessage ("up", SendMessageOptions.DontRequireReceiver);
+		} else if (Input.GetButton (downAxis)) {
+			transform.parent.SendMessage ("down", SendMessageOptions.DontRequireReceiver);
+		} else if (Input.GetButton (leftAxis)) {
+			transform.parent.SendMessage ("left", SendMessageOptions.DontRequireReceiver);
+		} else if (Input.GetButton (rightAxis)) {
+			transform.parent.SendMessage ("right", SendMessageOptions.DontRequireReceiver);
+		} else {
+			transform.parent.SendMessage ("soundOfSilence", SendMessageOptions.DontRequireReceiver);
 		}
 
 	

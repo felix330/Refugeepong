@@ -14,6 +14,10 @@ public class Ball : MonoBehaviour {
 	void Update ()
 	{
 		Vector2 v = GetComponent<Rigidbody2D> ().velocity;
-		GetComponent<Rigidbody2D> ().AddForce (v*0.1f);
+		if (v.magnitude < 1.5) {
+			GetComponent<Rigidbody2D> ().AddForce (v);
+		}
+		GetComponent<Rigidbody2D> ().AddForce (v*0.001f);
+
 	}
 }
