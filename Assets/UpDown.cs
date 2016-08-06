@@ -3,6 +3,9 @@ using System.Collections;
 
 public class UpDown : MonoBehaviour {
 
+	public float upperLimit;
+	public float lowerLimit;
+
 	public float sensitivity;
 	// Use this for initialization
 	void Start () {
@@ -15,11 +18,17 @@ public class UpDown : MonoBehaviour {
 
 	void up()
 	{
-		transform.position += transform.up*sensitivity;
+		if (transform.position.y < upperLimit)
+		{
+			transform.position += transform.up*sensitivity;
+		}
 	}
 
 	void down()
 	{
-		transform.position -= transform.up*sensitivity;
+		if (transform.position.y > lowerLimit)
+		{
+			transform.position -= transform.up*sensitivity;
+		}
 	}
 }
