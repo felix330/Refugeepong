@@ -21,6 +21,8 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+
+
 		if (Input.GetButton(upAxis))
 		{
 			transform.parent.SendMessage ("up",SendMessageOptions.DontRequireReceiver);
@@ -47,6 +49,11 @@ public class Player : MonoBehaviour {
 		transform.parent = ship.transform;
 		transform.parent.SendMessage("shipSwitch",associatedPaddleSprite, SendMessageOptions.DontRequireReceiver);
 		transform.parent.SendMessage("boatSwitch",associatedBallSprite,SendMessageOptions.DontRequireReceiver);
+	}
+
+	void addScore (int toAdd)
+	{
+		score += toAdd;
 	}
 		
 }
