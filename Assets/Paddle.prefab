@@ -38,6 +38,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000012882082844}
   - 212: {fileID: 212000010497686602}
+  - 114: {fileID: 114000013017670476}
   m_Layer: 0
   m_Name: water_ripple_medium_000
   m_TagString: Untagged
@@ -52,7 +53,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011167225256}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8, y: 0, z: 0}
+  m_LocalPosition: {x: 8, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -66,7 +67,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012850617714}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.108, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -86,6 +87,24 @@ BoxCollider2D:
   m_Offset: {x: 0.62500954, y: 0.6252203}
   serializedVersion: 2
   m_Size: {x: 1.2326965, y: 1.2320957}
+--- !u!114 &114000013017670476
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012850617714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 961b3f18fe59c3f4291794700966f309, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rippleStates:
+  - {fileID: 21300000, guid: dc7683f1da527e14eafe4df9f1915fcd, type: 3}
+  - {fileID: 21300000, guid: d83c4afc5366d0e4ba8752d018b007c8, type: 3}
+  - {fileID: 21300000, guid: cd70ca062ae877a45b800006fd60e499, type: 3}
+  - {fileID: 21300000, guid: 2fd6131149c2d1d4ba0e6b14b804c5ca, type: 3}
+  - {fileID: 21300000, guid: 0597be1cd6d22b34da6d799dae8f4566, type: 3}
+  interval: 1
 --- !u!114 &114000013400424174
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -97,9 +116,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 943d9e38bb569934da43713a89cd75ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upperLimit: 3.3
-  lowerLimit: -3.3
-  sensitivity: 2
+  upperLimit: 2.5
+  lowerLimit: -5
+  sensitivity: 4
 --- !u!212 &212000010492386072
 SpriteRenderer:
   m_ObjectHideFlags: 1
