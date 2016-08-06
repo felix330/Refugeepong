@@ -18,6 +18,8 @@ public class UpDown : MonoBehaviour {
 
 	void up()
 	{
+		Vector3 rot = new Vector3(0,0,0);
+		transform.eulerAngles = rot;
 		if (transform.position.y < upperLimit)
 		{
 			transform.position += transform.up*sensitivity*Time.deltaTime;
@@ -26,9 +28,11 @@ public class UpDown : MonoBehaviour {
 
 	void down()
 	{
+		Vector3 rot = new Vector3(0,0,180);
+		transform.eulerAngles = rot;
 		if (transform.position.y > lowerLimit)
 		{
-			transform.position -= transform.up*sensitivity*Time.deltaTime;
+			transform.position += transform.up*sensitivity*Time.deltaTime;
 		}
 	}
 
