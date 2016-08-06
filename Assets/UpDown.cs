@@ -20,7 +20,7 @@ public class UpDown : MonoBehaviour {
 	{
 		if (transform.position.y < upperLimit)
 		{
-			transform.position += transform.up*sensitivity;
+			transform.position += transform.up*sensitivity*Time.deltaTime;
 		}
 	}
 
@@ -28,7 +28,12 @@ public class UpDown : MonoBehaviour {
 	{
 		if (transform.position.y > lowerLimit)
 		{
-			transform.position -= transform.up*sensitivity;
+			transform.position -= transform.up*sensitivity*Time.deltaTime;
 		}
+	}
+
+	void shipSwitch(Sprite shipSpr)
+	{
+		GetComponent<SpriteRenderer>().sprite = shipSpr;
 	}
 }

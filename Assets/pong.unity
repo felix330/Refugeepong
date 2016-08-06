@@ -283,11 +283,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4000010619503036, guid: 6673ed3e733fe554ba8c0302d431ad98, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -8.7
+      value: -8
       objectReference: {fileID: 0}
     - target: {fileID: 4000010619503036, guid: 6673ed3e733fe554ba8c0302d431ad98, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.67
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4000010619503036, guid: 6673ed3e733fe554ba8c0302d431ad98, type: 2}
       propertyPath: m_LocalPosition.z
@@ -313,15 +313,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 114000013400424174, guid: 6673ed3e733fe554ba8c0302d431ad98,
-        type: 2}
-      propertyPath: upperLimit
-      value: 2.5
+    - target: {fileID: 1000011167225256, guid: 6673ed3e733fe554ba8c0302d431ad98, type: 2}
+      propertyPath: m_Name
+      value: PaddleL
       objectReference: {fileID: 0}
     - target: {fileID: 114000013400424174, guid: 6673ed3e733fe554ba8c0302d431ad98,
         type: 2}
-      propertyPath: lowerLimit
-      value: -5
+      propertyPath: sensitivity
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6673ed3e733fe554ba8c0302d431ad98, type: 2}
@@ -543,6 +542,16 @@ Prefab:
       propertyPath: rightAxis
       value: p1Left
       objectReference: {fileID: 0}
+    - target: {fileID: 1000012975340490, guid: 8242bbaabccc5f04cb8e195fe4bf2e0f, type: 2}
+      propertyPath: m_Name
+      value: Player1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010617095258, guid: 8242bbaabccc5f04cb8e195fe4bf2e0f,
+        type: 2}
+      propertyPath: associatedPaddleSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1511124af15d49c4e8bc3f7a2f7e090a,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8242bbaabccc5f04cb8e195fe4bf2e0f, type: 2}
   m_IsPrefabParent: 0
@@ -559,7 +568,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000010619503036, guid: 6673ed3e733fe554ba8c0302d431ad98, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.5544177
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4000010619503036, guid: 6673ed3e733fe554ba8c0302d431ad98, type: 2}
       propertyPath: m_LocalPosition.z
@@ -587,7 +596,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1000011167225256, guid: 6673ed3e733fe554ba8c0302d431ad98, type: 2}
       propertyPath: m_Name
-      value: Paddle (1)
+      value: PaddleR
       objectReference: {fileID: 0}
     - target: {fileID: 114000013400424174, guid: 6673ed3e733fe554ba8c0302d431ad98,
         type: 2}
@@ -598,6 +607,11 @@ Prefab:
         type: 2}
       propertyPath: lowerLimit
       value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013400424174, guid: 6673ed3e733fe554ba8c0302d431ad98,
+        type: 2}
+      propertyPath: sensitivity
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6673ed3e733fe554ba8c0302d431ad98, type: 2}
@@ -659,7 +673,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1535790945}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.622947, y: 0.23149449, z: -4.8632812}
+  m_LocalPosition: {x: 14.84, y: 0.23149449, z: -4.8632812}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
