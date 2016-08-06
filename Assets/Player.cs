@@ -12,9 +12,6 @@ public class Player : MonoBehaviour {
 	public Sprite associatedPaddleSprite;
 	public Sprite associatedBallSprite;
 
-	//Temporary Vars
-
-	public bool switchPositionToggle;
 
 	// Use this for initialization
 	void Start () {
@@ -41,17 +38,15 @@ public class Player : MonoBehaviour {
 			transform.parent.SendMessage ("right",SendMessageOptions.DontRequireReceiver);
 		}
 
-		if (switchPositionToggle)
-		{
-			switchPosition();
-			switchPositionToggle = false;
-		}
+	
 	
 	}
 
-	void switchPosition()
+	public void switchPosition(GameObject ship)
 	{
+		transform.parent = ship.transform;
 		transform.parent.SendMessage("shipSwitch",associatedPaddleSprite, SendMessageOptions.DontRequireReceiver);
 		transform.parent.SendMessage("boatSwitch",associatedBallSprite,SendMessageOptions.DontRequireReceiver);
 	}
+		
 }
