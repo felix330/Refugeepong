@@ -28,4 +28,16 @@ public class Ball : MonoBehaviour {
 			transform.eulerAngles = new Vector3 (0, 0, rot.eulerAngles.x - rot.eulerAngles.y);
 		}
 	}
+
+	void upPush()
+	{
+		Vector2 v = new Vector2(0,5);
+		GetComponent<Rigidbody2D>().AddForce(v);
+	}
+
+	void downPush()
+	{
+		Vector2 v = new Vector2(0,-5);
+		GetComponent<Rigidbody2D>().AddForce(v);
+	}
 }
