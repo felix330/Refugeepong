@@ -53,18 +53,19 @@ public class UpDown : MonoBehaviour {
 	void OnCollisionExit2D (Collision2D c)
 	{
 		c.collider.gameObject.GetComponent<Ball>().lastContact = gameObject;
-		if (goinUp == 1)
-		{	
+		if (goinUp == 1) {	
 			Vector2 v = new Vector2 (0, 100);
 			c.collider.gameObject.GetComponent<Rigidbody2D> ().AddForce (v);
-			Debug.Log ("goin'Up");
-		}
-		else if (goinUp == -1)
-		{	
+		} else if (goinUp == -1) {	
 			Vector2 v = new Vector2 (0, -100);
-			Debug.Log ("goin'Down maybe?");
 			c.collider.gameObject.GetComponent<Rigidbody2D> ().AddForce (v);
-			Debug.Log ("goin'Down");
+		} else {
+			int sign = 1;
+			if (gameObject.name == "PaddleR") {
+				sign = -1;
+			}
+			Vector2 v = new Vector2 (sign*100, 0);
+			c.collider.gameObject.GetComponent<Rigidbody2D> ().AddForce (v);
 		}
 	}
 		
