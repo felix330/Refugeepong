@@ -54,19 +54,19 @@ public class UpDown : MonoBehaviour {
 	{
 		c.collider.gameObject.GetComponent<Ball>().lastContact = gameObject;
 		if (goinUp == 1) {	
-			Vector2 v = new Vector2 (0, 100);
+			Vector2 v = new Vector2 (0, 30);
 			c.collider.gameObject.GetComponent<Rigidbody2D> ().AddForce (v);
 		} else if (goinUp == -1) {	
-			Vector2 v = new Vector2 (0, -100);
+			Vector2 v = new Vector2 (0, -30);
 			c.collider.gameObject.GetComponent<Rigidbody2D> ().AddForce (v);
-		} else {
+		} 
 			int sign = 1;
 			if (gameObject.name == "PaddleR") {
 				sign = -1;
 			}
-			Vector2 v = new Vector2 (sign*100, 0);
-			c.collider.gameObject.GetComponent<Rigidbody2D> ().AddForce (v);
-		}
+			Vector2 vv = new Vector2 (sign*100, 0);
+			c.collider.gameObject.GetComponent<Rigidbody2D> ().AddForce (vv);
+
 	}
 		
 }

@@ -16,9 +16,16 @@ public class GameMaster : MonoBehaviour {
 	public GameObject scoreM;
 	public GameObject scoreR;
 
+	public GameObject messageBox;
+
+	public int numberOfRounds;
+	private int currentRound;
+
 	public int paddleGoThroughScore;
 	public int refugeeGoThroughScore;
 	public int killedRefugeesScore;
+	public int diedRefugeesScore;
+
 
 	// Use this for initialization
 	void Start () {
@@ -39,6 +46,7 @@ public class GameMaster : MonoBehaviour {
 
 	void startGame () 
 	{
+		currentRound = 0;
 		player1.GetComponent<Player>().switchPosition(paddleL);
 		player2.GetComponent<Player>().switchPosition(ball);
 		player3.GetComponent<Player>().switchPosition(paddleR);
@@ -57,24 +65,45 @@ public class GameMaster : MonoBehaviour {
 	{
 		paddleR.GetComponent<ChildSave>().child.GetComponent<Player>().addScore(paddleGoThroughScore);
 		ball.GetComponent<ChildSave>().child.GetComponent<Player>().addScore(refugeeGoThroughScore);
-		ball.SendMessage ("reset");
+		newRound();
 	}
 
 	void rightBorder()
 	{
 		paddleL.GetComponent<ChildSave>().child.GetComponent<Player>().addScore(paddleGoThroughScore);
 		ball.GetComponent<ChildSave>().child.GetComponent<Player>().addScore(refugeeGoThroughScore);
-		ball.SendMessage ("reset");
+		newRound();
 	}
 
 	void sinkBoat()
 	{
+		messageBox.GetComponent<Text>().text = "Refugees drowned";
 		if (ball.GetComponent<Ball>().lastContact != null)
 		{
+			ball.GetComponent<ChildSave>().child.GetComponent<Player>().addScore(diedRefugeesScore);
 			GameObject toSwitch = ball.GetComponent<Ball>().lastContact.GetComponent<ChildSave>().child;
 			toSwitch.GetComponent<Player>().addScore(killedRefugeesScore);
 			swap(toSwitch,ball.GetComponent<ChildSave>().child);
 		}
-		ball.SendMessage ("reset");
+		newRound();
+
+	}
+
+	void newRound()
+	{
+		if (currentRound<numberOfRounds)
+		{
+			currentRound++;
+			ball.SendMessage ("reset");
+		}
+		else
+		{
+			messageBox.GetComponent<Text>().text = "Round over!";
+			currentRound = 0;
+			player1.GetComponent<Player>().score = 0;
+			player2.GetComponent<Player>().score = 0;
+			player3.GetComponent<Player>().score = 0;
+			ball.SendMessage ("reset");
+		}
 	}
 }

@@ -454,7 +454,7 @@ InputManager:
     axis: 0
     joyNum: 0
   - serializedVersion: 3
-    m_Name: p3Left
+    m_Name: p3Right
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -470,7 +470,7 @@ InputManager:
     axis: 0
     joyNum: 0
   - serializedVersion: 3
-    m_Name: p3Right
+    m_Name: p3Left
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 

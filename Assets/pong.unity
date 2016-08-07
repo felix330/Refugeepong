@@ -497,7 +497,7 @@ Prefab:
     - target: {fileID: 114000013400424174, guid: 6673ed3e733fe554ba8c0302d431ad98,
         type: 2}
       propertyPath: sensitivity
-      value: 6
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 114000013400424174, guid: 6673ed3e733fe554ba8c0302d431ad98,
         type: 2}
@@ -1108,9 +1108,12 @@ MonoBehaviour:
   scoreL: {fileID: 1596874826}
   scoreM: {fileID: 1748096051}
   scoreR: {fileID: 831513979}
+  messageBox: {fileID: 1964929677}
+  numberOfRounds: 3
   paddleGoThroughScore: 1
   refugeeGoThroughScore: 1
   killedRefugeesScore: -3
+  diedRefugeesScore: -1
 --- !u!1001 &1261607690
 Prefab:
   m_ObjectHideFlags: 0
@@ -1163,12 +1166,12 @@ Prefab:
     - target: {fileID: 114000010617095258, guid: 8242bbaabccc5f04cb8e195fe4bf2e0f,
         type: 2}
       propertyPath: leftAxis
-      value: p1Right
+      value: p1Left
       objectReference: {fileID: 0}
     - target: {fileID: 114000010617095258, guid: 8242bbaabccc5f04cb8e195fe4bf2e0f,
         type: 2}
       propertyPath: rightAxis
-      value: p1Left
+      value: p1Right
       objectReference: {fileID: 0}
     - target: {fileID: 1000012975340490, guid: 8242bbaabccc5f04cb8e195fe4bf2e0f, type: 2}
       propertyPath: m_Name
@@ -1280,7 +1283,7 @@ Prefab:
     - target: {fileID: 114000013400424174, guid: 6673ed3e733fe554ba8c0302d431ad98,
         type: 2}
       propertyPath: sensitivity
-      value: 6
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6673ed3e733fe554ba8c0302d431ad98, type: 2}
@@ -1586,7 +1589,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1563862056}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12, y: 0, z: 0}
+  m_LocalPosition: {x: 12.3, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -1807,6 +1810,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lastContact: {fileID: 0}
+  messageBox: {fileID: 1964929677}
 --- !u!114 &1604273098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1831,8 +1835,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boatCondition: 0
-  decayRatePerS: 0.5
-  randomRate: 2
+  decayRatePerS: 1
+  randomRate: 2.5
+  running: 0
   gamemaster: {fileID: 1215281275}
 --- !u!1 &1689042827
 GameObject:
@@ -2165,7 +2170,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1875095554}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12, y: 0, z: 0}
+  m_LocalPosition: {x: -12.3, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []

@@ -40,6 +40,12 @@ public class Player : MonoBehaviour {
 		} else if (Input.GetButtonDown (downAxis)) {
 			transform.parent.SendMessage ("downPush", SendMessageOptions.DontRequireReceiver);
 		}
+		else if (Input.GetButtonDown (leftAxis)) {
+			transform.parent.SendMessage ("leftPush", SendMessageOptions.DontRequireReceiver);
+		} else if (Input.GetButtonDown (rightAxis)) {
+			transform.parent.SendMessage ("rightPush", SendMessageOptions.DontRequireReceiver);
+		}
+
 
 	
 	
