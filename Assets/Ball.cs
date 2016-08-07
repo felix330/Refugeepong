@@ -46,6 +46,7 @@ public class Ball : MonoBehaviour {
 		transform.position = Vector2.zero;
 		lastContact = null;
 		Vector2 v = new Vector2 (50, -100);
+		GetComponent<boatDecay>().boatCondition = 0;
 		GetComponent<Rigidbody2D> ().AddForce (v);
 	}
 
