@@ -20,9 +20,12 @@ public class Ball : MonoBehaviour {
 		}
 		GetComponent<Rigidbody2D> ().AddForce (v*0.001f);
 
-		Quaternion rot = Quaternion.LookRotation (v);
-		Debug.Log (rot.eulerAngles);
-		transform.eulerAngles = new Vector3(0,0,rot.eulerAngles.x-rot.eulerAngles.y);
-
+		Quaternion rot = Quaternion.LookRotation (GetComponent<Rigidbody2D>().velocity);
+		if (rot.eulerAngles.y == 90) {
+			transform.eulerAngles = new Vector3 (0, 0, -rot.eulerAngles.x - rot.eulerAngles.y);
+		}
+		if (rot.eulerAngles.y == 270) {
+			transform.eulerAngles = new Vector3 (0, 0, rot.eulerAngles.x - rot.eulerAngles.y);
+		}
 	}
 }
