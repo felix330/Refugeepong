@@ -57,14 +57,14 @@ public class GameMaster : MonoBehaviour {
 	{
 		paddleR.GetComponent<ChildSave>().child.GetComponent<Player>().addScore(paddleGoThroughScore);
 		ball.GetComponent<ChildSave>().child.GetComponent<Player>().addScore(refugeeGoThroughScore);
-		resetBall();
+		ball.SendMessage ("reset");
 	}
 
 	void rightBorder()
 	{
 		paddleL.GetComponent<ChildSave>().child.GetComponent<Player>().addScore(paddleGoThroughScore);
 		ball.GetComponent<ChildSave>().child.GetComponent<Player>().addScore(refugeeGoThroughScore);
-		resetBall();
+		ball.SendMessage ("reset");
 	}
 
 	void sinkBoat()
@@ -75,12 +75,6 @@ public class GameMaster : MonoBehaviour {
 			toSwitch.GetComponent<Player>().addScore(killedRefugeesScore);
 			swap(toSwitch,ball.GetComponent<ChildSave>().child);
 		}
-		resetBall();
-	}
-
-	void resetBall()
-	{
-		ball.transform.position = Vector2.zero;
-		ball.GetComponent<Ball>().lastContact = null;
+		ball.SendMessage ("reset");
 	}
 }

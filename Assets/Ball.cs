@@ -7,8 +7,7 @@ public class Ball : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
 	{
-		Vector2 v = new Vector2 (50, -100);
-		GetComponent<Rigidbody2D> ().AddForce (v);
+		reset ();
 	}
 
 	// Update is called once per frame
@@ -41,8 +40,18 @@ public class Ball : MonoBehaviour {
 		GetComponent<Rigidbody2D>().AddForce(v);
 	}
 
+	void reset()
+	{
+		GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
+		transform.position = Vector2.zero;
+		lastContact = null;
+		Vector2 v = new Vector2 (50, -100);
+		GetComponent<Rigidbody2D> ().AddForce (v);
+	}
+
 	void boatSwitch(Sprite shipSpr)
 	{
 		GetComponent<SpriteRenderer>().sprite = shipSpr;
 	}
+
 }
