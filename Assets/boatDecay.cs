@@ -32,6 +32,7 @@ public class boatDecay : MonoBehaviour {
 			{
 				Debug.Log("Boat Sunk");
 				gamemaster.SendMessage("sinkBoat");
+				boatCondition = 0;
 			}
 			countTime = 0;
 		}
