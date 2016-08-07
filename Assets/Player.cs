@@ -35,6 +35,12 @@ public class Player : MonoBehaviour {
 			transform.parent.SendMessage ("soundOfSilence", SendMessageOptions.DontRequireReceiver);
 		}
 
+		if (Input.GetButtonDown (upAxis)) {
+			transform.parent.SendMessage ("upPush", SendMessageOptions.DontRequireReceiver);
+		} else if (Input.GetButtonDown (downAxis)) {
+			transform.parent.SendMessage ("downPush", SendMessageOptions.DontRequireReceiver);
+		}
+
 	
 	
 	}
