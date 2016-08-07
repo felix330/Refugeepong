@@ -7,7 +7,7 @@ public class Ball : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
 	{
-		reset ();
+		StartCoroutine (reset ());
 	}
 
 	// Update is called once per frame
@@ -40,12 +40,15 @@ public class Ball : MonoBehaviour {
 		GetComponent<Rigidbody2D>().AddForce(v);
 	}
 
-	void reset()
+	IEnumerator reset()
 	{
 		GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
 		transform.position = Vector2.zero;
 		lastContact = null;
 		Vector2 v = new Vector2 (50, -100);
+		GetComponent<boatDecay> ().running = false;
+		yield return new WaitForSeconds (2);
+		GetComponent<boatDecay> ().running = true;
 		GetComponent<boatDecay>().boatCondition = 0;
 		GetComponent<Rigidbody2D> ().AddForce (v);
 	}

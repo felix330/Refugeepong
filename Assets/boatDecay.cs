@@ -6,6 +6,7 @@ public class boatDecay : MonoBehaviour {
 	public float boatCondition;
 	public float decayRatePerS;
 	public float randomRate;
+	public bool running;
 	public GameObject gamemaster;
 
 	private float countTime;
@@ -16,15 +17,16 @@ public class boatDecay : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (running) {
+			countTime += Time.deltaTime;
+		
 
-		countTime += Time.deltaTime;
-
-		if (boatCondition < 80)
-		{
-			boatCondition += decayRatePerS*Time.deltaTime;
+			if (boatCondition < 80) {
+				boatCondition += decayRatePerS * Time.deltaTime;
+			}
 		}
 
-		float randomValue = Random.Range(0,100);
+		float randomValue = Random.Range(1,100);
 
 		if (countTime > randomRate)
 		{
