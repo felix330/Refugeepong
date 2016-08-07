@@ -157,7 +157,7 @@ Prefab:
         type: 2}
       propertyPath: associatedPaddleSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 6ff5274a63d9a7c43914c3c7dea44194,
+      objectReference: {fileID: 21300000, guid: efefe54eb4df71c4fabde5d69ee7546c,
         type: 3}
     - target: {fileID: 114000010617095258, guid: 8242bbaabccc5f04cb8e195fe4bf2e0f,
         type: 2}
@@ -789,7 +789,7 @@ Prefab:
         type: 2}
       propertyPath: associatedPaddleSprite
       value: 
-      objectReference: {fileID: 21300000, guid: efefe54eb4df71c4fabde5d69ee7546c,
+      objectReference: {fileID: 21300000, guid: 6ff5274a63d9a7c43914c3c7dea44194,
         type: 3}
     - target: {fileID: 114000010617095258, guid: 8242bbaabccc5f04cb8e195fe4bf2e0f,
         type: 2}
@@ -1295,6 +1295,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1563862058}
   - 61: {fileID: 1563862057}
+  - 114: {fileID: 1563862059}
   m_Layer: 0
   m_Name: rightBorder
   m_TagString: Untagged
@@ -1329,6 +1330,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
+--- !u!114 &1563862059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1563862056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80a4986694571dd42982834d43d45a7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  message: rightBorder
+  gamemaster: {fileID: 1215281275}
 --- !u!1 &1596874826
 GameObject:
   m_ObjectHideFlags: 0
@@ -1417,6 +1431,7 @@ GameObject:
   - 50: {fileID: 1604273096}
   - 114: {fileID: 1604273097}
   - 114: {fileID: 1604273098}
+  - 114: {fileID: 1604273099}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -1515,6 +1530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d80d7f7767e448678768f14d2ee23bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lastContact: {fileID: 0}
 --- !u!114 &1604273098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1527,6 +1543,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   child: {fileID: 0}
+--- !u!114 &1604273099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1604273092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b257d31f38e999845ac09726d7d66ace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boatCondition: 0
+  decayRatePerS: 0.5
+  randomRate: 2
+  gamemaster: {fileID: 1215281275}
 --- !u!1 &1748096051
 GameObject:
   m_ObjectHideFlags: 0
@@ -1703,6 +1734,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1875095556}
   - 61: {fileID: 1875095555}
+  - 114: {fileID: 1875095557}
   m_Layer: 0
   m_Name: leftBorder
   m_TagString: Untagged
@@ -1737,3 +1769,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
+--- !u!114 &1875095557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1875095554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80a4986694571dd42982834d43d45a7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  message: leftBorder
+  gamemaster: {fileID: 1215281275}
