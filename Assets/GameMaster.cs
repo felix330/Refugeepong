@@ -16,6 +16,10 @@ public class GameMaster : MonoBehaviour {
 	public GameObject scoreM;
 	public GameObject scoreR;
 
+	public int paddleGoThroughScore;
+	public int refugeeGoThroughScore;
+	public int killedRefugeesScore;
+
 	// Use this for initialization
 	void Start () {
 		startGame();
@@ -51,15 +55,15 @@ public class GameMaster : MonoBehaviour {
 
 	void leftBorder()
 	{
-		paddleR.GetComponent<ChildSave>().child.GetComponent<Player>().addScore(1);
-		ball.GetComponent<ChildSave>().child.GetComponent<Player>().addScore(1);
+		paddleR.GetComponent<ChildSave>().child.GetComponent<Player>().addScore(paddleGoThroughScore);
+		ball.GetComponent<ChildSave>().child.GetComponent<Player>().addScore(refugeeGoThroughScore);
 		resetBall();
 	}
 
 	void rightBorder()
 	{
-		paddleL.GetComponent<ChildSave>().child.GetComponent<Player>().addScore(1);
-		ball.GetComponent<ChildSave>().child.GetComponent<Player>().addScore(1);
+		paddleL.GetComponent<ChildSave>().child.GetComponent<Player>().addScore(paddleGoThroughScore);
+		ball.GetComponent<ChildSave>().child.GetComponent<Player>().addScore(refugeeGoThroughScore);
 		resetBall();
 	}
 
@@ -68,6 +72,7 @@ public class GameMaster : MonoBehaviour {
 		if (ball.GetComponent<Ball>().lastContact != null)
 		{
 			GameObject toSwitch = ball.GetComponent<Ball>().lastContact.GetComponent<ChildSave>().child;
+			toSwitch.GetComponent<Player>().addScore(killedRefugeesScore);
 			swap(toSwitch,ball.GetComponent<ChildSave>().child);
 		}
 		resetBall();
