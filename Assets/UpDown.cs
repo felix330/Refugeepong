@@ -52,6 +52,7 @@ public class UpDown : MonoBehaviour {
 
 	void OnCollisionExit2D (Collision2D c)
 	{
+		c.collider.gameObject.GetComponent<Ball>().lastContact = gameObject;
 		if (goinUp == 1)
 		{	
 			Vector2 v = new Vector2 (0, 100);

@@ -16,6 +16,10 @@ public class GameMaster : MonoBehaviour {
 	public GameObject scoreM;
 	public GameObject scoreR;
 
+	public int paddleGoThroughScore;
+	public int refugeeGoThroughScore;
+	public int killedRefugeesScore;
+
 	// Use this for initialization
 	void Start () {
 		startGame();
@@ -36,8 +40,8 @@ public class GameMaster : MonoBehaviour {
 	void startGame () 
 	{
 		player1.GetComponent<Player>().switchPosition(paddleL);
-		player2.GetComponent<Player>().switchPosition(paddleR);
-		player3.GetComponent<Player>().switchPosition(ball);
+		player2.GetComponent<Player>().switchPosition(ball);
+		player3.GetComponent<Player>().switchPosition(paddleR);
 	}
 
 	void swap(GameObject p1,GameObject p2)
@@ -45,19 +49,38 @@ public class GameMaster : MonoBehaviour {
 		GameObject pParent1 = p1.transform.parent.gameObject;
 		GameObject pParent2 = p2.transform.parent.gameObject;
 
-		p1.GetComponent<Player>().switchPosition(p2);
-		p2.GetComponent<Player>().switchPosition(p1);
+		p1.GetComponent<Player>().switchPosition(pParent2);
+		p2.GetComponent<Player>().switchPosition(pParent1);
 	}
 
 	void leftBorder()
 	{
-		paddleR.GetComponent<ChildSave>().child.GetComponent<Player>().addScore(1);
-		ball.GetComponent<ChildSave>().child.GetComponent<Player>().addScore(1);
+		paddleR.GetComponent<ChildSave>().child.GetComponent<Player>().addScore(paddleGoThroughScore);
+		ball.GetComponent<ChildSave>().child.GetComponent<Player>().addScore(refugeeGoThroughScore);
+		resetBall();
 	}
 
 	void rightBorder()
 	{
-		paddleL.GetComponent<ChildSave>().child.GetComponent<Player>().addScore(1);
-		ball.GetComponent<ChildSave>().child.GetComponent<Player>().addScore(1);
+		paddleL.GetComponent<ChildSave>().child.GetComponent<Player>().addScore(paddleGoThroughScore);
+		ball.GetComponent<ChildSave>().child.GetComponent<Player>().addScore(refugeeGoThroughScore);
+		resetBall();
+	}
+
+	void sinkBoat()
+	{
+		if (ball.GetComponent<Ball>().lastContact != null)
+		{
+			GameObject toSwitch = ball.GetComponent<Ball>().lastContact.GetComponent<ChildSave>().child;
+			toSwitch.GetComponent<Player>().addScore(killedRefugeesScore);
+			swap(toSwitch,ball.GetComponent<ChildSave>().child);
+		}
+		resetBall();
+	}
+
+	void resetBall()
+	{
+		ball.transform.position = Vector2.zero;
+		ball.GetComponent<Ball>().lastContact = null;
 	}
 }

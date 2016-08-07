@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Ball : MonoBehaviour {
 
+	public GameObject lastContact;
 	// Use this for initialization
 	void Start ()
 	{
