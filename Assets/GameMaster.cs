@@ -20,11 +20,17 @@ public class GameMaster : MonoBehaviour {
 	void Start () {
 		startGame();
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		scoreL.GetComponent<Text>().text = paddleL.GetComponent<ChildSave>().child.GetComponent<Player>().score.ToString();
 		scoreL.GetComponent<Text>().color = paddleL.GetComponent<ChildSave>().child.GetComponent<Player>().color;
+
+		scoreM.GetComponent<Text>().text = ball.GetComponent<ChildSave>().child.GetComponent<Player>().score.ToString();
+		scoreM.GetComponent<Text>().color = ball.GetComponent<ChildSave>().child.GetComponent<Player>().color;
+
+		scoreR.GetComponent<Text>().text = paddleR.GetComponent<ChildSave>().child.GetComponent<Player>().score.ToString();
+		scoreR.GetComponent<Text>().color = paddleR.GetComponent<ChildSave>().child.GetComponent<Player>().color;
 	}
 
 	void startGame () 
@@ -41,5 +47,17 @@ public class GameMaster : MonoBehaviour {
 
 		p1.GetComponent<Player>().switchPosition(p2);
 		p2.GetComponent<Player>().switchPosition(p1);
+	}
+
+	void leftBorder()
+	{
+		paddleR.GetComponent<ChildSave>().child.GetComponent<Player>().addScore(1);
+		ball.GetComponent<ChildSave>().child.GetComponent<Player>().addScore(1);
+	}
+
+	void rightBorder()
+	{
+		paddleL.GetComponent<ChildSave>().child.GetComponent<Player>().addScore(1);
+		ball.GetComponent<ChildSave>().child.GetComponent<Player>().addScore(1);
 	}
 }

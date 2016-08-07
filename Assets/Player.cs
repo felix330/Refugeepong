@@ -47,7 +47,7 @@ public class Player : MonoBehaviour {
 		transform.parent.gameObject.GetComponent<ChildSave>().child = gameObject;
 	}
 
-	void addScore (int toAdd)
+	public void addScore (int toAdd)
 	{
 		score += toAdd;
 	}
