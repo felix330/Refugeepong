@@ -179,6 +179,12 @@ Prefab:
       propertyPath: color.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114000010617095258, guid: 8242bbaabccc5f04cb8e195fe4bf2e0f,
+        type: 2}
+      propertyPath: associatedBallSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1dfad452dd616ab448c5c24f146a0580,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8242bbaabccc5f04cb8e195fe4bf2e0f, type: 2}
   m_IsPrefabParent: 0
@@ -811,6 +817,12 @@ Prefab:
       propertyPath: color.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114000010617095258, guid: 8242bbaabccc5f04cb8e195fe4bf2e0f,
+        type: 2}
+      propertyPath: associatedBallSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3908e4c468649164aa03cfdbe5127a19,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8242bbaabccc5f04cb8e195fe4bf2e0f, type: 2}
   m_IsPrefabParent: 0
@@ -937,9 +949,9 @@ MonoBehaviour:
   scoreL: {fileID: 1596874826}
   scoreM: {fileID: 1748096051}
   scoreR: {fileID: 831513979}
-  paddleGoThroughScore: 0
-  refugeeGoThroughScore: 0
-  killedRefugeesScore: 0
+  paddleGoThroughScore: 1
+  refugeeGoThroughScore: 1
+  killedRefugeesScore: -3
 --- !u!1001 &1261607690
 Prefab:
   m_ObjectHideFlags: 0
@@ -1029,6 +1041,12 @@ Prefab:
       propertyPath: color.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114000010617095258, guid: 8242bbaabccc5f04cb8e195fe4bf2e0f,
+        type: 2}
+      propertyPath: associatedBallSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ece347b40f564a4489042485c3bb2a1e,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8242bbaabccc5f04cb8e195fe4bf2e0f, type: 2}
   m_IsPrefabParent: 0

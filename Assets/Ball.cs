@@ -40,4 +40,9 @@ public class Ball : MonoBehaviour {
 		Vector2 v = new Vector2(0,-5);
 		GetComponent<Rigidbody2D>().AddForce(v);
 	}
+
+	void boatSwitch(Sprite shipSpr)
+	{
+		GetComponent<SpriteRenderer>().sprite = shipSpr;
+	}
 }
