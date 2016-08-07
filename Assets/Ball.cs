@@ -19,5 +19,9 @@ public class Ball : MonoBehaviour {
 		}
 		GetComponent<Rigidbody2D> ().AddForce (v*0.001f);
 
+		Quaternion rot = Quaternion.LookRotation (v);
+		Debug.Log (rot.eulerAngles);
+		transform.eulerAngles = new Vector3(0,0,rot.eulerAngles.x-rot.eulerAngles.y);
+
 	}
 }
