@@ -6,6 +6,9 @@ public class Ball : MonoBehaviour {
 
 	public GameObject lastContact;
 	public GameObject messageBox;
+	public GameObject gamemaster;
+
+	private bool betweenRounds;
 	// Use this for initialization
 	void Start ()
 	{
@@ -59,7 +62,7 @@ public class Ball : MonoBehaviour {
 	{
 		GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
 
-
+		betweenRounds = true;
 
 		float r1 = Random.value;
 
@@ -101,6 +104,11 @@ public class Ball : MonoBehaviour {
 		transform.position = Vector2.zero;
 		GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
 		yield return new WaitForSeconds (1);
+		transform.position = Vector2.zero;
+		GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
+
+		betweenRounds = false;
+
 		lastContact = null;
 		messageBox.GetComponent<Text>().text = "";
 		GetComponent<boatDecay> ().running = true;
@@ -111,6 +119,13 @@ public class Ball : MonoBehaviour {
 	void boatSwitch(Sprite shipSpr)
 	{
 		GetComponent<SpriteRenderer>().sprite = shipSpr;
+	}
+
+	void OnCollisionEnter2D(Collision2D col)
+	{
+		if (betweenRounds && col.gameObject.GetComponent<UpDown> () != null) {
+			gamemaster.SendMessage ("rammedBoat", col.gameObject);
+		}
 	}
 
 }

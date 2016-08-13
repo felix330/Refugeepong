@@ -12,6 +12,9 @@ public class Player : MonoBehaviour {
 	public Sprite associatedPaddleSprite;
 	public Sprite associatedBallSprite;
 
+	public GameObject gamemaster;
+
+
 	public Color color;
 	// Use this for initialization
 	void Start () {
@@ -62,6 +65,7 @@ public class Player : MonoBehaviour {
 	public void addScore (int toAdd)
 	{
 		score += toAdd;
+		StartCoroutine(gamemaster.GetComponent<GameMaster>().showScoreChange(gameObject, toAdd));
 	}
 		
 }

@@ -34,6 +34,10 @@ public class GameMaster : MonoBehaviour {
 	public GameObject scoreM;
 	public GameObject scoreR;
 
+	public GameObject scoreChangeL;
+	public GameObject scoreChangeM;
+	public GameObject scoreChangeR;
+
 	public GameObject messageBox;
 
 	public int numberOfRounds;
@@ -43,6 +47,8 @@ public class GameMaster : MonoBehaviour {
 	public int refugeeGoThroughScore;
 	public int killedRefugeesScore;
 	public int diedRefugeesScore;
+	public int ramPaddleScore;
+	public int ramRefugeeScore;
 
 
 	// Use this for initialization
@@ -88,6 +94,7 @@ public class GameMaster : MonoBehaviour {
 
 	void leftBorder()
 	{
+		messageBox.GetComponent<Text>().text = "Refugees landed";
 		paddleR.GetComponent<ChildSave>().child.GetComponent<Player>().addScore(paddleGoThroughScore);
 		ball.GetComponent<ChildSave>().child.GetComponent<Player>().addScore(refugeeGoThroughScore);
 
@@ -109,6 +116,7 @@ public class GameMaster : MonoBehaviour {
 
 	void rightBorder()
 	{
+		messageBox.GetComponent<Text>().text = "Refugees landed";
 		paddleL.GetComponent<ChildSave>().child.GetComponent<Player>().addScore(paddleGoThroughScore);
 		ball.GetComponent<ChildSave>().child.GetComponent<Player>().addScore(refugeeGoThroughScore);
 
@@ -151,6 +159,13 @@ public class GameMaster : MonoBehaviour {
 		}
 		newRound();
 
+	}
+
+	void rammedBoat(GameObject by)
+	{
+		Debug.Log ("rammed boat");
+		by.GetComponent<ChildSave>().child.GetComponent<Player>().addScore(ramPaddleScore);
+		ball.GetComponent<ChildSave>().child.GetComponent<Player>().addScore(ramRefugeeScore);
 	}
 
 	void newRound()
@@ -221,5 +236,47 @@ public class GameMaster : MonoBehaviour {
 		p3Dead = 0;
 		p3Alive = 0;
 		ball.SendMessage ("reset");
+	}
+
+	public IEnumerator showScoreChange(GameObject p, int amount)
+	{
+		GameObject chosenPanel;
+		chosenPanel = null;
+		if (p.transform.parent.gameObject == paddleL) {
+			Debug.Log ("paddleL");
+			chosenPanel = scoreChangeL;
+			chosenPanel.GetComponent<Text> ().text = "";
+			if (amount > 0) {
+				chosenPanel.GetComponent<Text> ().text = "+";
+				chosenPanel.GetComponent<Text> ().color = Color.green;
+			} else {
+				chosenPanel.GetComponent<Text> ().color = Color.red;
+			}
+			chosenPanel.GetComponent<Text> ().text += amount.ToString();
+		}
+		if (p.transform.parent.gameObject == paddleR.gameObject) {
+			chosenPanel = scoreChangeR;
+			chosenPanel.GetComponent<Text> ().text = "";
+			if (amount > 0) {
+				chosenPanel.GetComponent<Text> ().text = "+";
+				chosenPanel.GetComponent<Text> ().color = Color.green;
+			} else {
+				chosenPanel.GetComponent<Text> ().color = Color.red;
+			}
+			chosenPanel.GetComponent<Text> ().text += amount.ToString();
+		}
+		if (p.transform.parent.gameObject == ball.gameObject) {
+			chosenPanel = scoreChangeM;
+			chosenPanel.GetComponent<Text> ().text = "";
+			if (amount > 0) {
+				chosenPanel.GetComponent<Text> ().text = "+";
+				chosenPanel.GetComponent<Text> ().color = Color.green;
+			} else {
+				chosenPanel.GetComponent<Text> ().color = Color.red;
+			}
+			chosenPanel.GetComponent<Text> ().text += amount.ToString();
+		}
+		yield return new WaitForSeconds (2);
+		chosenPanel.GetComponent<Text> ().text = "";
 	}
 }
