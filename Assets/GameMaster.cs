@@ -24,6 +24,7 @@ public class GameMaster : MonoBehaviour {
 	public GameObject p3ScoreP;
 
 	public GameObject finalPanel;
+	public GameObject timePanel;
 
 	public GameObject paddleL;
 	public GameObject paddleR;
@@ -184,7 +185,27 @@ public class GameMaster : MonoBehaviour {
 
 		ball.SetActive(false);
 
-		yield return new WaitForSeconds(10);
+		timePanel.GetComponent<Text> ().text = "10";
+		yield return new WaitForSeconds(1);
+		timePanel.GetComponent<Text> ().text = "9";
+		yield return new WaitForSeconds(1);
+		timePanel.GetComponent<Text> ().text = "8";
+		yield return new WaitForSeconds(1);
+		timePanel.GetComponent<Text> ().text = "7";
+		yield return new WaitForSeconds(1);
+		timePanel.GetComponent<Text> ().text = "6";
+		yield return new WaitForSeconds(1);
+		timePanel.GetComponent<Text> ().text = "5";
+		yield return new WaitForSeconds(1);
+		timePanel.GetComponent<Text> ().text = "4";
+		yield return new WaitForSeconds(1);
+		timePanel.GetComponent<Text> ().text = "3";
+		yield return new WaitForSeconds(1);
+		timePanel.GetComponent<Text> ().text = "2";
+		yield return new WaitForSeconds(1);
+		timePanel.GetComponent<Text> ().text = "1";
+		yield return new WaitForSeconds(1);
+		timePanel.GetComponent<Text> ().text = "0";
 
 		ball.SetActive(true);
 
