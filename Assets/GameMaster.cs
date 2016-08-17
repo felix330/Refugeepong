@@ -73,6 +73,10 @@ public class GameMaster : MonoBehaviour {
 
 		scoreR.GetComponent<Text>().text = paddleR.GetComponent<ChildSave>().child.GetComponent<Player>().score.ToString();
 		scoreR.GetComponent<Text>().color = paddleR.GetComponent<ChildSave>().child.GetComponent<Player>().color;
+
+		if (Input.GetKey("escape")){
+			Application.Quit ();
+		}
 	}
 
 	void startGame () 
@@ -94,21 +98,24 @@ public class GameMaster : MonoBehaviour {
 
 	void leftBorder()
 	{
-		messageBox.GetComponent<Text>().text = "Refugees landed";
+		messageBox.GetComponent<Text>().text = "Refugees landed on the shore of ";
 		paddleR.GetComponent<ChildSave>().child.GetComponent<Player>().addScore(paddleGoThroughScore);
 		ball.GetComponent<ChildSave>().child.GetComponent<Player>().addScore(refugeeGoThroughScore);
 
 
 		if (paddleL.GetComponent<ChildSave>().child == player1)
 		{
+			messageBox.GetComponent<Text>().text += "Player Yellow.";
 			p1Alive += 1;
 		}
 		if (paddleL.GetComponent<ChildSave>().child == player2)
 		{
+			messageBox.GetComponent<Text>().text += "Player Red.";
 			p2Alive += 1;
 		}
 		if (paddleL.GetComponent<ChildSave>().child == player3)
 		{
+			messageBox.GetComponent<Text>().text += "Player Green.";
 			p3Alive += 1;
 		}
 		newRound();
@@ -116,20 +123,23 @@ public class GameMaster : MonoBehaviour {
 
 	void rightBorder()
 	{
-		messageBox.GetComponent<Text>().text = "Refugees landed";
+		messageBox.GetComponent<Text>().text = "Refugees landed on the shore of ";
 		paddleL.GetComponent<ChildSave>().child.GetComponent<Player>().addScore(paddleGoThroughScore);
 		ball.GetComponent<ChildSave>().child.GetComponent<Player>().addScore(refugeeGoThroughScore);
 
 		if (paddleR.GetComponent<ChildSave>().child == player1)
 		{
+			messageBox.GetComponent<Text>().text += "Player Yellow.";
 			p1Alive += 1;
 		}
 		if (paddleR.GetComponent<ChildSave>().child == player2)
 		{
+			messageBox.GetComponent<Text>().text += "Player Red.";
 			p2Alive += 1;
 		}
 		if (paddleR.GetComponent<ChildSave>().child == player3)
 		{
+			messageBox.GetComponent<Text>().text += "Player Green.";
 			p3Alive += 1;
 		}
 		newRound();
@@ -137,22 +147,37 @@ public class GameMaster : MonoBehaviour {
 
 	void sinkBoat()
 	{
-		messageBox.GetComponent<Text>().text = "Refugees drowned";
+		messageBox.GetComponent<Text>().text = "Refugees drowned.";
+		
 		if (ball.GetComponent<Ball>().lastContact != null)
 		{
 			ball.GetComponent<ChildSave>().child.GetComponent<Player>().addScore(diedRefugeesScore);
 			if (ball.GetComponent<Ball>().lastContact.GetComponent<ChildSave>().child == player1)
 			{
+				messageBox.GetComponent<Text>().text += " Player Yellow and ";
 				p1Dead += 1;
 			}
 			if (ball.GetComponent<Ball>().lastContact.GetComponent<ChildSave>().child == player2)
 			{
+				messageBox.GetComponent<Text>().text += " Player Red and ";
 				p2Dead += 1;
 			}
 			if (ball.GetComponent<Ball>().lastContact.GetComponent<ChildSave>().child == player3)
 			{
+				messageBox.GetComponent<Text>().text += " Player Green and ";
 				p3Dead += 1;
 			}
+
+			if (ball.GetComponent<ChildSave> ().child == player1) {
+				messageBox.GetComponent<Text>().text += " Yellow swap places. ";
+			}
+			if (ball.GetComponent<ChildSave> ().child == player2) {
+				messageBox.GetComponent<Text>().text += " Red swap places. ";
+			}
+			if (ball.GetComponent<ChildSave> ().child == player3) {
+				messageBox.GetComponent<Text>().text += " Green swap places. ";
+			}
+
 			GameObject toSwitch = ball.GetComponent<Ball>().lastContact.GetComponent<ChildSave>().child;
 			toSwitch.GetComponent<Player>().addScore(killedRefugeesScore);
 			swap(toSwitch,ball.GetComponent<ChildSave>().child);
@@ -163,7 +188,18 @@ public class GameMaster : MonoBehaviour {
 
 	void rammedBoat(GameObject by)
 	{
-		Debug.Log ("rammed boat");
+		messageBox.GetComponent<Text>().text = "Refugee boat was rammed by ";
+
+		if (by.GetComponent<ChildSave> ().child == player1) {
+			messageBox.GetComponent<Text>().text += "Player Yellow";
+		}
+		if (by.GetComponent<ChildSave> ().child == player2) {
+			messageBox.GetComponent<Text>().text += "Player Red";
+		}
+		if (by.GetComponent<ChildSave> ().child == player3) {
+			messageBox.GetComponent<Text>().text += "Player Green";
+		}
+
 		by.GetComponent<ChildSave>().child.GetComponent<Player>().addScore(ramPaddleScore);
 		ball.GetComponent<ChildSave>().child.GetComponent<Player>().addScore(ramRefugeeScore);
 	}
