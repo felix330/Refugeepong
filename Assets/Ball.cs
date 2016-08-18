@@ -103,7 +103,7 @@ public class Ball : MonoBehaviour {
 		yield return new WaitForSeconds (1);
 		transform.position = Vector2.zero;
 		GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
-		yield return new WaitForSeconds (1);
+		yield return new WaitForSeconds (2);
 		transform.position = Vector2.zero;
 		GetComponent<Rigidbody2D> ().velocity = Vector2.zero;
 
@@ -111,6 +111,7 @@ public class Ball : MonoBehaviour {
 
 		lastContact = null;
 		messageBox.GetComponent<Text>().text = "";
+		messageBox.GetComponent<Text> ().color = Color.black;
 		GetComponent<boatDecay> ().running = true;
 		GetComponent<boatDecay>().boatCondition = 0;
 		GetComponent<Rigidbody2D> ().AddForce (v);

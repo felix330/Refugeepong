@@ -188,20 +188,24 @@ public class GameMaster : MonoBehaviour {
 
 	void rammedBoat(GameObject by)
 	{
-		messageBox.GetComponent<Text>().text = "Refugee boat was rammed by ";
+		messageBox.GetComponent<Text> ().color = Color.red;
 
 		if (by.GetComponent<ChildSave> ().child == player1) {
-			messageBox.GetComponent<Text>().text += "Player Yellow";
+			messageBox.GetComponent<Text>().text = "Player Yellow";
 		}
 		if (by.GetComponent<ChildSave> ().child == player2) {
-			messageBox.GetComponent<Text>().text += "Player Red";
+			messageBox.GetComponent<Text>().text = "Player Red";
 		}
 		if (by.GetComponent<ChildSave> ().child == player3) {
-			messageBox.GetComponent<Text>().text += "Player Green";
+			messageBox.GetComponent<Text>().text = "Player Green";
 		}
+
+		messageBox.GetComponent<Text>().text += "rammed the landed boat";
 
 		by.GetComponent<ChildSave>().child.GetComponent<Player>().addScore(ramPaddleScore);
 		ball.GetComponent<ChildSave>().child.GetComponent<Player>().addScore(ramRefugeeScore);
+
+		ball.SendMessage ("reset");
 	}
 
 	void newRound()
